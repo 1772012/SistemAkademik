@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<SplitPane fx:id="mainMenuViewPane" dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.main.MainMenuViewController">
+    <items>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label fx:id="usernameLabel" text="-" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <children>
+                        <Label fx:id="jabatanLabel" text="-" />
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+        <GridPane alignment="CENTER" style="-fx-background-color: aqua;" stylesheets="@../../style/mainmenuview.css">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="175.0" prefWidth="141.0">
+                    <children>
+                        <ImageView fx:id="image1View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image1Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                    <children>
+                        <ImageView fx:id="image2View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image2Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                    <children>
+                        <ImageView fx:id="image3View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image3Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <children>
+                        <ImageView fx:id="image4View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image4Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <ImageView fx:id="image5View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image5Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <ImageView fx:id="image6View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image6Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                    <children>
+                        <ImageView fx:id="image7View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image7Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <children>
+                        <ImageView fx:id="image8View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image8Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <children>
+                        <ImageView fx:id="image9View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image9Click" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </items>
+</SplitPane>

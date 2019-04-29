@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
@@ -9,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<SplitPane fx:id="mainMenuViewPane" dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.main.MainMenuViewController">
+<SplitPane fx:id="mainMenuViewPane" dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.main.MainMenuViewController">
     <items>
         <GridPane>
             <columnConstraints>
@@ -32,7 +37,7 @@
                 </HBox>
             </children>
         </GridPane>
-        <GridPane alignment="CENTER" style="-fx-background-color: aqua;" stylesheets="@../../style/mainmenuview.css">
+        <GridPane alignment="CENTER" stylesheets="@../../style/mainmenuview.css">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,50 +52,117 @@
                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
             </padding>
             <children>
-                <HBox prefHeight="175.0" prefWidth="141.0">
-                    <children>
-                        <ImageView fx:id="image1View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image1Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#absensiClick" prefHeight="175.0" prefWidth="141.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/absensi-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Absensi" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-                    <children>
-                        <ImageView fx:id="image2View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image2Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#kelasClick" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/class-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Kelas" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
-                    <children>
-                        <ImageView fx:id="image3View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image3Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#kurikulumClick" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/curriculum-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Kurikulum" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
-                    <children>
-                        <ImageView fx:id="image4View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image4Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#dosenClick" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/lecturer-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Dosen" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <children>
-                        <ImageView fx:id="image5View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image5Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#mahasiswaClick" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/mahasiswa-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Mahasiswa" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <children>
-                        <ImageView fx:id="image6View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image6Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#jadwalClick" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/schedule-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Jadwal" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
-                    <children>
-                        <ImageView fx:id="image7View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image7Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#wisudaClick" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/wisuda-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Wisuda" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <children>
-                        <ImageView fx:id="image8View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image8Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
-                </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                    <children>
-                        <ImageView fx:id="image9View" fitHeight="175.0" fitWidth="154.0" onMouseClicked="#image9Click" pickOnBounds="true" preserveRatio="true" />
-                    </children>
+                <HBox alignment="CENTER" onMouseClicked="#logoutClick" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/logout-logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Logout" />
+                     </children>
+                  </VBox>
+               </children>
                 </HBox>
             </children>
         </GridPane>

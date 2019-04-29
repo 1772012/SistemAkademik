@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox fx:id="registerViewPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.main.RegisterViewController">
     <children>
         <GridPane>
@@ -45,7 +44,7 @@
                 <PasswordField fx:id="retypepassPasswordTextField" promptText="re-type password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="emailTextField" promptText="someone@example.com" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <TextField fx:id="teleponTextField" promptText="08xxxxxxxxxx" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <ComboBox fx:id="jabatanComboBox" prefWidth="150.0" promptText="Pilih..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <ComboBox fx:id="jabatanComboBox" prefHeight="25.0" prefWidth="274.0" promptText="Pilih..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                     <children>
                         <Button mnemonicParsing="false" onAction="#clearClick" text="Clear" />

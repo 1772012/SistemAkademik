@@ -1,5 +1,6 @@
 package com.kafka;
 
+import com.kafka.util.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,6 +25,12 @@ public class MainApp extends Application {
         primaryStage.setResizable(false);
         primaryStage.setTitle("Login");
         primaryStage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        HibernateUtil.getSessionFactory().close();
     }
 
 }

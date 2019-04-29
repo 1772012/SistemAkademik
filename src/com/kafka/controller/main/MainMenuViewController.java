@@ -1,13 +1,22 @@
 package com.kafka.controller.main;
 
+import com.kafka.MainApp;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -22,24 +31,8 @@ public class MainMenuViewController implements Initializable {
     private Label usernameLabel;
     @FXML
     private Label jabatanLabel;
-    @FXML
-    private ImageView image1View;
-    @FXML
-    private ImageView image2View;
-    @FXML
-    private ImageView image3View;
-    @FXML
-    private ImageView image4View;
-    @FXML
-    private ImageView image5View;
-    @FXML
-    private ImageView image6View;
-    @FXML
-    private ImageView image7View;
-    @FXML
-    private ImageView image8View;
-    @FXML
-    private ImageView image9View;
+
+    private Stage absensiStage, kelasStage, kurikulumStage, dosenStage, mahasiswaStage, jadwalStage, wisudaStage;
 
     /**
      * Initializes the controller class.
@@ -53,39 +46,100 @@ public class MainMenuViewController implements Initializable {
     }
 
     @FXML
-    private void image1Click(MouseEvent event) {
+    private void absensiClick(MouseEvent event) {
     }
 
     @FXML
-    private void image2Click(MouseEvent event) {
+    private void kelasClick(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/matakuliah/MataKuliahView.fxml"));
+            BorderPane pane = loader.load();
+            Scene scene = new Scene(pane);
+            kelasStage = new Stage();
+            kelasStage.setScene(scene);
+            kelasStage.setTitle("Mata Kuliah");
+            kelasStage.setResizable(false);
+            kelasStage.initModality(Modality.APPLICATION_MODAL);
+            kelasStage.initOwner(mainMenuViewPane.getScene().getWindow());
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        kelasStage.show();
     }
 
     @FXML
-    private void image3Click(MouseEvent event) {
+    private void kurikulumClick(MouseEvent event) {
     }
 
     @FXML
-    private void image4Click(MouseEvent event) {
+    private void dosenClick(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/dosen/DosenView.fxml"));
+            BorderPane pane = loader.load();
+            Scene scene = new Scene(pane);
+            dosenStage = new Stage();
+            dosenStage.setScene(scene);
+            dosenStage.setTitle("Mata Kuliah");
+            dosenStage.setResizable(false);
+            dosenStage.initModality(Modality.APPLICATION_MODAL);
+            dosenStage.initOwner(mainMenuViewPane.getScene().getWindow());
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dosenStage.show();
     }
 
     @FXML
-    private void image5Click(MouseEvent event) {
+    private void mahasiswaClick(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/mahasiswa/MahasiswaView.fxml"));
+            BorderPane pane = loader.load();
+            Scene scene = new Scene(pane);
+            mahasiswaStage = new Stage();
+            mahasiswaStage.setScene(scene);
+            mahasiswaStage.setTitle("Mata Kuliah");
+            mahasiswaStage.setResizable(false);
+            mahasiswaStage.initModality(Modality.APPLICATION_MODAL);
+            mahasiswaStage.initOwner(mainMenuViewPane.getScene().getWindow());
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mahasiswaStage.show();
     }
 
     @FXML
-    private void image6Click(MouseEvent event) {
+    private void jadwalClick(MouseEvent event) {
     }
 
     @FXML
-    private void image7Click(MouseEvent event) {
+    private void wisudaClick(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/wisuda/WisudaView.fxml"));
+            BorderPane pane = loader.load();
+            Scene scene = new Scene(pane);
+            wisudaStage = new Stage();
+            wisudaStage.setScene(scene);
+            wisudaStage.setTitle("Mata Kuliah");
+            wisudaStage.setResizable(false);
+            wisudaStage.initModality(Modality.APPLICATION_MODAL);
+            wisudaStage.initOwner(mainMenuViewPane.getScene().getWindow());
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        wisudaStage.show();
     }
 
     @FXML
-    private void image8Click(MouseEvent event) {
-    }
-
-    @FXML
-    private void image9Click(MouseEvent event) {
+    private void logoutClick(MouseEvent event) {
+        Platform.exit();
     }
 
 }

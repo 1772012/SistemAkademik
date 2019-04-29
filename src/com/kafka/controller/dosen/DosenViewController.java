@@ -21,8 +21,6 @@ public class DosenViewController implements Initializable {
     @FXML
     private TextField namaDosenTextField;
     @FXML
-    private Button removeDosenButton;
-    @FXML
     private Button editDosenButton;
     @FXML
     private Button saveDosenButton;
@@ -59,9 +57,6 @@ public class DosenViewController implements Initializable {
     private void addDosenClick(ActionEvent event) {
     }
 
-    @FXML
-    private void removeDosenClick(ActionEvent event) {
-    }
 
     @FXML
     private void editDosenClick(ActionEvent event) {

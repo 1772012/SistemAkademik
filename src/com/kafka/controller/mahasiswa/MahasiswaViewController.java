@@ -30,8 +30,6 @@ public class MahasiswaViewController implements Initializable {
     @FXML
     private TableColumn<?, ?> ipkCol;
     @FXML
-    private TableColumn<?, ?> kurikulumCol;
-    @FXML
     private TableColumn<?, ?> dosenWaliCol;
     @FXML
     private Button editMahasiswaButton;
@@ -77,6 +75,10 @@ public class MahasiswaViewController implements Initializable {
 
     @FXML
     private void loadFromExcelClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void cariClick(ActionEvent event) {
     }
 
 }

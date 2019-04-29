@@ -6,6 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,11 +34,33 @@ public class DosenViewController implements Initializable {
     @FXML
     private TableColumn<?, ?> nidnDosenCol;
     @FXML
-    private TableColumn<?, ?> namaLengkapDosenCol;
-    @FXML
     private TableColumn<?, ?> gelarDepanCol;
     @FXML
     private TableColumn<?, ?> gelarBelakangCol;
+    @FXML
+    private Menu fileMenu;
+    @FXML
+    private MenuItem closeMenu;
+    @FXML
+    private Menu helpMenu;
+    @FXML
+    private MenuItem aboutMenu;
+    @FXML
+    private Label aboutLabel;
+    @FXML
+    private Label namaDosenLabel;
+    @FXML
+    private Button addDosenButton;
+    @FXML
+    private Button viewDosenButton;
+    @FXML
+    private Button loadDosenButton;
+    @FXML
+    private Button printDosenButton;
+    @FXML
+    private TableColumn<?, ?> namaDepanCol;
+    @FXML
+    private TableColumn<?, ?> namaBelakangCol;
 
     /**
      * Initializes the controller class.
@@ -57,7 +82,6 @@ public class DosenViewController implements Initializable {
     private void addDosenClick(ActionEvent event) {
     }
 
-
     @FXML
     private void editDosenClick(ActionEvent event) {
     }
@@ -76,6 +100,10 @@ public class DosenViewController implements Initializable {
 
     @FXML
     private void dosenTableVIewClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void viewDosenClick(ActionEvent event) {
     }
 
 }

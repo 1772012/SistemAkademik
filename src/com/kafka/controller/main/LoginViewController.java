@@ -82,12 +82,15 @@ public class LoginViewController implements Initializable {
                     loader.setLocation(MainApp.class.getResource(
                             "view/main/MainMenuView.fxml"));
                     SplitPane pane = loader.load();
+                    MainMenuViewController controller = loader.getController();
+                    controller.setMainController(this);
                     Scene scene = new Scene(pane);
                     mainMenuStage.setScene(scene);
+                    mainMenuStage.setResizable(false);
                     mainMenuStage.
                             initOwner(splitPaneRoot.getScene().getWindow());
                     mainMenuStage.initModality(Modality.APPLICATION_MODAL);
-                    ((Stage) splitPaneRoot.getScene().getWindow()).close();
+                    ((Stage) splitPaneRoot.getScene().getWindow()).hide();
                 }
                 if (!mainMenuStage.isShowing()) {
                     mainMenuStage.show();
@@ -125,6 +128,7 @@ public class LoginViewController implements Initializable {
                 }
                 Scene scene = new Scene(pane);
                 registerStage.setScene(scene);
+                registerStage.setResizable(false);
                 registerStage.initOwner(splitPaneRoot.getScene().getWindow());
                 registerStage.initModality(Modality.APPLICATION_MODAL);
             }
@@ -171,6 +175,14 @@ public class LoginViewController implements Initializable {
             jabatanDaoImpl = new JabatanDaoImpl();
         }
         return jabatanDaoImpl;
+    }
+
+    public String getUsername() {
+        return usernameTextField.getText();
+    }
+
+    public String getPassword() {
+        return passwordPasswordField.getText();
     }
 
     public boolean isValid(String username, String password) {

@@ -34,6 +34,8 @@ public class MainMenuViewController implements Initializable {
 
     private Stage absensiStage, kelasStage, kurikulumStage, dosenStage, mahasiswaStage, jadwalStage, wisudaStage;
 
+    private LoginViewController mainController;
+
     /**
      * Initializes the controller class.
      *
@@ -64,7 +66,8 @@ public class MainMenuViewController implements Initializable {
             kelasStage.initModality(Modality.APPLICATION_MODAL);
             kelasStage.initOwner(mainMenuViewPane.getScene().getWindow());
         } catch (IOException ex) {
-            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMenuViewController.class.getName()).log(
+                    Level.SEVERE, null, ex);
         }
         kelasStage.show();
     }
@@ -88,7 +91,8 @@ public class MainMenuViewController implements Initializable {
             dosenStage.initModality(Modality.APPLICATION_MODAL);
             dosenStage.initOwner(mainMenuViewPane.getScene().getWindow());
         } catch (IOException ex) {
-            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMenuViewController.class.getName()).log(
+                    Level.SEVERE, null, ex);
         }
         dosenStage.show();
     }
@@ -108,7 +112,8 @@ public class MainMenuViewController implements Initializable {
             mahasiswaStage.initModality(Modality.APPLICATION_MODAL);
             mahasiswaStage.initOwner(mainMenuViewPane.getScene().getWindow());
         } catch (IOException ex) {
-            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMenuViewController.class.getName()).log(
+                    Level.SEVERE, null, ex);
         }
         mahasiswaStage.show();
     }
@@ -132,7 +137,8 @@ public class MainMenuViewController implements Initializable {
             wisudaStage.initModality(Modality.APPLICATION_MODAL);
             wisudaStage.initOwner(mainMenuViewPane.getScene().getWindow());
         } catch (IOException ex) {
-            Logger.getLogger(MainMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMenuViewController.class.getName()).log(
+                    Level.SEVERE, null, ex);
         }
         wisudaStage.show();
     }
@@ -142,4 +148,24 @@ public class MainMenuViewController implements Initializable {
         Platform.exit();
     }
 
+    public void setMainController(LoginViewController mainController) {
+        this.mainController = mainController;
+        usernameLabel.setText(this.mainController.getUsername());
+        jabatanLabel.setText(cekJabatan(this.mainController.getUsername(),
+                this.mainController.getPassword()));
+    }
+
+    public String cekJabatan(String user, String pass) {
+        String jabatan = "null";
+        for (int i = 0; i < this.mainController.getAccounts().size(); i++) {
+            if (user.equals(this.mainController.getAccounts().get(i).
+                    getUsernameAccount()) && pass.equals(this.mainController.
+                            getAccounts().get(i).getPassword())) {
+                jabatan = this.mainController.getAccounts().get(i).getJabatan().
+                        getNamaJabatan();
+                break;
+            }
+        }
+        return jabatan;
+    }
 }

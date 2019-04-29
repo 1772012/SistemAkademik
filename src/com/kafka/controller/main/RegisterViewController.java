@@ -95,6 +95,10 @@ public class RegisterViewController implements Initializable {
                 emailTextField.clear();
                 teleponTextField.clear();
                 jabatanComboBox.setValue(null);
+                this.mainController.getAccounts().clear();
+                this.mainController.getAccounts().addAll(
+                        this.mainController.getAccountDaoImpl().getAllData()
+                );
                 ((Stage) registerViewPane.getScene().getWindow()).close();
             }
         }

@@ -1,5 +1,5 @@
 package com.kafka.entity;
-// Generated Apr 20, 2019 10:10:57 AM by Hibernate Tools 4.3.1
+// Generated May 3, 2019 5:38:29 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,6 +29,7 @@ public class Dosen  implements java.io.Serializable {
      private String namaBelakangDosen;
      private String gelarDepanDosen;
      private String gelarBelakangDosen;
+     private byte[] imageDosen;
      private Set<Mahasiswa> mahasiswas = new HashSet<Mahasiswa>(0);
      private Set<Jadwalkelas> jadwalkelases = new HashSet<Jadwalkelas>(0);
 
@@ -40,13 +41,14 @@ public class Dosen  implements java.io.Serializable {
         this.nikdosen = nikdosen;
         this.nidndosen = nidndosen;
     }
-    public Dosen(String nikdosen, String nidndosen, String namaDepanDosen, String namaBelakangDosen, String gelarDepanDosen, String gelarBelakangDosen, Set<Mahasiswa> mahasiswas, Set<Jadwalkelas> jadwalkelases) {
+    public Dosen(String nikdosen, String nidndosen, String namaDepanDosen, String namaBelakangDosen, String gelarDepanDosen, String gelarBelakangDosen, byte[] imageDosen, Set<Mahasiswa> mahasiswas, Set<Jadwalkelas> jadwalkelases) {
        this.nikdosen = nikdosen;
        this.nidndosen = nidndosen;
        this.namaDepanDosen = namaDepanDosen;
        this.namaBelakangDosen = namaBelakangDosen;
        this.gelarDepanDosen = gelarDepanDosen;
        this.gelarBelakangDosen = gelarBelakangDosen;
+       this.imageDosen = imageDosen;
        this.mahasiswas = mahasiswas;
        this.jadwalkelases = jadwalkelases;
     }
@@ -111,6 +113,16 @@ public class Dosen  implements java.io.Serializable {
     
     public void setGelarBelakangDosen(String gelarBelakangDosen) {
         this.gelarBelakangDosen = gelarBelakangDosen;
+    }
+
+    
+    @Column(name="ImageDosen")
+    public byte[] getImageDosen() {
+        return this.imageDosen;
+    }
+    
+    public void setImageDosen(byte[] imageDosen) {
+        this.imageDosen = imageDosen;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="dosen")

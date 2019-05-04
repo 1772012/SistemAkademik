@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenAddViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenAddViewController">
    <children>
       <GridPane>
         <columnConstraints>
@@ -21,6 +21,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,10 +43,17 @@
             <TextField fx:id="namaBelakangTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="gelarDepanTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="gelarBelakangTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
                   <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearClick" text="Clear" />
                   <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveClick" text="Save" />
+               </children>
+            </HBox>
+            <Label text="Foto" GridPane.rowIndex="6" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#uploadClick" text="Upload" />
+                  <TextField fx:id="fileChooserTextField" editable="false" prefHeight="25.0" prefWidth="284.0" />
                </children>
             </HBox>
          </children>

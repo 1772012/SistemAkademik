@@ -1,5 +1,5 @@
 package com.kafka.entity;
-// Generated Apr 20, 2019 10:10:57 AM by Hibernate Tools 4.3.1
+// Generated May 3, 2019 5:38:29 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -28,16 +28,29 @@ public class Account  implements java.io.Serializable {
      private String password;
      private String emailAccount;
      private String telpAccount;
+     private String namaDepanAccount;
+     private String namaBelakangAccount;
 
     public Account() {
     }
 
-    public Account(Jabatan jabatan, String usernameAccount, String password, String emailAccount, String telpAccount) {
+	
+    public Account(Jabatan jabatan, String usernameAccount, String password, String emailAccount, String telpAccount, String namaDepanAccount) {
+        this.jabatan = jabatan;
+        this.usernameAccount = usernameAccount;
+        this.password = password;
+        this.emailAccount = emailAccount;
+        this.telpAccount = telpAccount;
+        this.namaDepanAccount = namaDepanAccount;
+    }
+    public Account(Jabatan jabatan, String usernameAccount, String password, String emailAccount, String telpAccount, String namaDepanAccount, String namaBelakangAccount) {
        this.jabatan = jabatan;
        this.usernameAccount = usernameAccount;
        this.password = password;
        this.emailAccount = emailAccount;
        this.telpAccount = telpAccount;
+       this.namaDepanAccount = namaDepanAccount;
+       this.namaBelakangAccount = namaBelakangAccount;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -100,6 +113,26 @@ public class Account  implements java.io.Serializable {
     
     public void setTelpAccount(String telpAccount) {
         this.telpAccount = telpAccount;
+    }
+
+    
+    @Column(name="NamaDepanAccount", nullable=false, length=60)
+    public String getNamaDepanAccount() {
+        return this.namaDepanAccount;
+    }
+    
+    public void setNamaDepanAccount(String namaDepanAccount) {
+        this.namaDepanAccount = namaDepanAccount;
+    }
+
+    
+    @Column(name="NamaBelakangAccount", length=60)
+    public String getNamaBelakangAccount() {
+        return this.namaBelakangAccount;
+    }
+    
+    public void setNamaBelakangAccount(String namaBelakangAccount) {
+        this.namaBelakangAccount = namaBelakangAccount;
     }
 
 

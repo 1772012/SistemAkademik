@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.matakuliah.MataKuliahViewController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.matakuliah.MataKuliahViewController">
    <center>
       <SplitPane dividerPositions="0.25" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
@@ -43,6 +43,7 @@
                               <Button mnemonicParsing="false" onAction="#addMKClick" text="+" />
                               <Button fx:id="removeMKButton" disable="true" mnemonicParsing="false" onAction="#removeMKClick" text="-" />
                               <Button fx:id="editMKButton" disable="true" mnemonicParsing="false" onAction="#editMKClick" text="Edit" />
+                              <Button fx:id="viewMKButton" disable="true" mnemonicParsing="false" onAction="#viewMKClick" text="View" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="5">
@@ -58,13 +59,14 @@
                   </GridPane>
                </children>
             </VBox>
-            <TableView fx:id="MKTableView" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="MKTableView" onMouseClicked="#tableMKClick" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="kodeMKCol" prefWidth="83.0" text="KODE" />
-                <TableColumn fx:id="namaMKCol" prefWidth="260.0" text="MATA KULIAH" />
-                  <TableColumn fx:id="sksTeoriCol" prefWidth="69.0" text="SKS TEORI" />
-                  <TableColumn fx:id="sksPraktikumCol" prefWidth="102.0" text="SKS PRAKTIKUM" />
-                  <TableColumn fx:id="kurikulumCol" prefWidth="81.0" text="KURIKULUM" />
+                <TableColumn fx:id="kodeMKCol" editable="false" prefWidth="90.0" resizable="false" text="KODE" />
+                <TableColumn fx:id="namaMKCol" editable="false" prefWidth="300.0" resizable="false" text="MATA KULIAH" />
+                  <TableColumn fx:id="sksTeoriCol" editable="false" prefWidth="103.0" resizable="false" text="SKS TEORI" />
+                  <TableColumn fx:id="sksPraktikumCol" editable="false" prefWidth="101.0" resizable="false" text="SKS PRAKTIKUM" />
+                  <TableColumn fx:id="kurikulumCol" prefWidth="81.0" text="KURIKULUM" visible="false" />
+                  <TableColumn fx:id="descriptionCol" prefWidth="75.0" text="Column X" visible="false" />
               </columns>
             </TableView>
          </items>

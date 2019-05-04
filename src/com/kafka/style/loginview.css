@@ -1,7 +1,4 @@
-/*
- * Empty Stylesheet file.
- */
-
-.mainFxmlClass {
-
+.buttons:pressed {
+    -fx-background-color: #f9c22e;
+    -fx-background-size: 10;
 }

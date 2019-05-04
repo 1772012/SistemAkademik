@@ -1,5 +1,5 @@
 package com.kafka.entity;
-// Generated Apr 20, 2019 10:10:57 AM by Hibernate Tools 4.3.1
+// Generated May 3, 2019 5:38:29 PM by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,8 +18,8 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "jabatan",
-         catalog = "dbsistemakademik",
-         uniqueConstraints = @UniqueConstraint(columnNames = "NamaJabatan")
+        catalog = "dbsistemakademik",
+        uniqueConstraints = @UniqueConstraint(columnNames = "NamaJabatan")
 )
 public class Jabatan implements java.io.Serializable {
 
@@ -71,7 +71,7 @@ public class Jabatan implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return this.namaJabatan;
+        return this.getNamaJabatan();
     }
 
 }

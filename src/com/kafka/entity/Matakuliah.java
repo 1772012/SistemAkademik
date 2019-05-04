@@ -1,5 +1,5 @@
 package com.kafka.entity;
-// Generated Apr 20, 2019 10:10:57 AM by Hibernate Tools 4.3.1
+// Generated May 3, 2019 5:38:29 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,8 +26,9 @@ public class Matakuliah  implements java.io.Serializable {
      private String kodeMataKuliah;
      private Kurikulum kurikulum;
      private String namaMataKuliah;
-     private Integer sksteoriMataKuliah;
-     private Integer skspraktikumMataKuliah;
+     private int sksteoriMataKuliah;
+     private int skspraktikumMataKuliah;
+     private String deskripsiMataKuliah;
      private Set<Jadwalkelas> jadwalkelases = new HashSet<Jadwalkelas>(0);
      private Set<Nilai> nilais = new HashSet<Nilai>(0);
 
@@ -35,16 +36,21 @@ public class Matakuliah  implements java.io.Serializable {
     }
 
 	
-    public Matakuliah(String kodeMataKuliah, Kurikulum kurikulum) {
+    public Matakuliah(String kodeMataKuliah, Kurikulum kurikulum, String namaMataKuliah, int sksteoriMataKuliah, int skspraktikumMataKuliah, String deskripsiMataKuliah) {
         this.kodeMataKuliah = kodeMataKuliah;
         this.kurikulum = kurikulum;
+        this.namaMataKuliah = namaMataKuliah;
+        this.sksteoriMataKuliah = sksteoriMataKuliah;
+        this.skspraktikumMataKuliah = skspraktikumMataKuliah;
+        this.deskripsiMataKuliah = deskripsiMataKuliah;
     }
-    public Matakuliah(String kodeMataKuliah, Kurikulum kurikulum, String namaMataKuliah, Integer sksteoriMataKuliah, Integer skspraktikumMataKuliah, Set<Jadwalkelas> jadwalkelases, Set<Nilai> nilais) {
+    public Matakuliah(String kodeMataKuliah, Kurikulum kurikulum, String namaMataKuliah, int sksteoriMataKuliah, int skspraktikumMataKuliah, String deskripsiMataKuliah, Set<Jadwalkelas> jadwalkelases, Set<Nilai> nilais) {
        this.kodeMataKuliah = kodeMataKuliah;
        this.kurikulum = kurikulum;
        this.namaMataKuliah = namaMataKuliah;
        this.sksteoriMataKuliah = sksteoriMataKuliah;
        this.skspraktikumMataKuliah = skspraktikumMataKuliah;
+       this.deskripsiMataKuliah = deskripsiMataKuliah;
        this.jadwalkelases = jadwalkelases;
        this.nilais = nilais;
     }
@@ -72,7 +78,7 @@ public class Matakuliah  implements java.io.Serializable {
     }
 
     
-    @Column(name="NamaMataKuliah", length=60)
+    @Column(name="NamaMataKuliah", nullable=false, length=60)
     public String getNamaMataKuliah() {
         return this.namaMataKuliah;
     }
@@ -82,23 +88,33 @@ public class Matakuliah  implements java.io.Serializable {
     }
 
     
-    @Column(name="SKSTeoriMataKuliah")
-    public Integer getSksteoriMataKuliah() {
+    @Column(name="SKSTeoriMataKuliah", nullable=false)
+    public int getSksteoriMataKuliah() {
         return this.sksteoriMataKuliah;
     }
     
-    public void setSksteoriMataKuliah(Integer sksteoriMataKuliah) {
+    public void setSksteoriMataKuliah(int sksteoriMataKuliah) {
         this.sksteoriMataKuliah = sksteoriMataKuliah;
     }
 
     
-    @Column(name="SKSPraktikumMataKuliah")
-    public Integer getSkspraktikumMataKuliah() {
+    @Column(name="SKSPraktikumMataKuliah", nullable=false)
+    public int getSkspraktikumMataKuliah() {
         return this.skspraktikumMataKuliah;
     }
     
-    public void setSkspraktikumMataKuliah(Integer skspraktikumMataKuliah) {
+    public void setSkspraktikumMataKuliah(int skspraktikumMataKuliah) {
         this.skspraktikumMataKuliah = skspraktikumMataKuliah;
+    }
+
+    
+    @Column(name="DeskripsiMataKuliah", nullable=false, length=1000)
+    public String getDeskripsiMataKuliah() {
+        return this.deskripsiMataKuliah;
+    }
+    
+    public void setDeskripsiMataKuliah(String deskripsiMataKuliah) {
+        this.deskripsiMataKuliah = deskripsiMataKuliah;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="matakuliah")

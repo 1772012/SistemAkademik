@@ -1,5 +1,5 @@
 package com.kafka.entity;
-// Generated Apr 20, 2019 10:10:57 AM by Hibernate Tools 4.3.1
+// Generated May 3, 2019 5:38:29 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;

@@ -54,8 +54,8 @@
                         <Label fx:id="namaKurikulumLabel" text="Nama Kurikulum" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="3">
                            <children>
-                              <Button fx:id="updateButton" mnemonicParsing="false" text="Update" />
-                              <Button fx:id="addButton" mnemonicParsing="false" text="Add" />
+                              <Button fx:id="updateButton" disable="true" mnemonicParsing="false" onAction="#updateClick" text="Update" />
+                              <Button fx:id="addButton" mnemonicParsing="false" onAction="#addClick" text="Add" />
                            </children>
                         </HBox>
                         <TextField fx:id="namaKurikulumTextField" GridPane.rowIndex="1" />
@@ -71,7 +71,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <TableView fx:id="kurikulumTableView" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="kurikulumTableView" onMouseClicked="#tableClick" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="namaKurikulumCol" editable="false" prefWidth="273.0" text="Nama Kurikulum" />
                 <TableColumn fx:id="statusAktifCol" editable="false" prefWidth="83.0" text="Status Aktif" />

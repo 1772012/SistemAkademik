@@ -11,21 +11,26 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -35,13 +40,29 @@ import javafx.stage.Stage;
 public class LoginViewController implements Initializable {
 
     @FXML
-    private ImageView imageViewShow;
-    @FXML
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordPasswordField;
     @FXML
-    private SplitPane splitPaneRoot;
+    private VBox root;
+    @FXML
+    private HBox closeBox;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label passwordLabel;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private Button registerButton;
+
+    private double xOffReg;
+
+    private double yOffReg;
+
+    private double xOffLog;
+
+    private double yOffLog;
 
     private Stage registerStage;
 
@@ -75,25 +96,47 @@ public class LoginViewController implements Initializable {
 
         if (isValid(usernameTextField.getText(), passwordPasswordField.getText())) {
             try {
-                if (mainMenuStage == null) {
-                    mainMenuStage = new Stage();
-                    mainMenuStage.setTitle("Main Menu");
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(MainApp.class.getResource(
-                            "view/main/MainMenuView.fxml"));
-                    SplitPane pane = loader.load();
-                    MainMenuViewController controller = loader.getController();
-                    controller.setMainController(this);
-                    Scene scene = new Scene(pane);
-                    mainMenuStage.setScene(scene);
-                    mainMenuStage.setResizable(false);
-                    mainMenuStage.
-                            initOwner(splitPaneRoot.getScene().getWindow());
-                    mainMenuStage.initModality(Modality.APPLICATION_MODAL);
-                    ((Stage) splitPaneRoot.getScene().getWindow()).hide();
-                }
+                mainMenuStage = new Stage();
+                mainMenuStage.setTitle("Main Menu");
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(MainApp.class.getResource(
+                        "view/main/MainMenuView.fxml"));
+                VBox pane = loader.load();
+                MainMenuViewController controller = loader.getController();
+                controller.setMainController(this);
+                Scene scene = new Scene(pane);
+                mainMenuStage.setScene(scene);
+                mainMenuStage.setResizable(false);
+                mainMenuStage.initStyle(StageStyle.UNDECORATED);
+                mainMenuStage.
+                        initOwner(root.getScene().getWindow());
+                mainMenuStage.initModality(Modality.APPLICATION_MODAL);
+                ((Stage) root.getScene().getWindow()).hide();
+
+                pane.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        xOffLog = mainMenuStage.getX() - event.getScreenX();
+                        yOffLog = mainMenuStage.getY() - event.getScreenY();
+                    }
+
+                });
+
+                pane.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        mainMenuStage.setX(event.getScreenX() + xOffLog);
+                        mainMenuStage.setY(event.getScreenY() + yOffLog);
+                    }
+
+                });
+
+                usernameTextField.clear();
+                passwordPasswordField.clear();
+
                 if (!mainMenuStage.isShowing()) {
                     mainMenuStage.show();
+
                 } else {
                     mainMenuStage.toFront();
                 }
@@ -129,11 +172,34 @@ public class LoginViewController implements Initializable {
                 Scene scene = new Scene(pane);
                 registerStage.setScene(scene);
                 registerStage.setResizable(false);
-                registerStage.initOwner(splitPaneRoot.getScene().getWindow());
+                registerStage.initStyle(StageStyle.UNDECORATED);
+                registerStage.initOwner(root.getScene().getWindow());
                 registerStage.initModality(Modality.APPLICATION_MODAL);
+
+                pane.setOnMousePressed(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        xOffReg = registerStage.getX() - event.getScreenX();
+                        yOffReg = registerStage.getY() - event.getScreenY();
+                    }
+
+                });
+
+                pane.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        registerStage.setX(event.getScreenX() + xOffReg);
+                        registerStage.setY(event.getScreenY() + yOffReg);
+                    }
+
+                });
+            } else {
+                registerStage.show();
+                ((Stage) root.getScene().getWindow()).hide();
             }
             if (!registerStage.isShowing()) {
                 registerStage.show();
+                ((Stage) root.getScene().getWindow()).hide();
             } else {
                 registerStage.toFront();
             }
@@ -143,7 +209,6 @@ public class LoginViewController implements Initializable {
         }
     }
 
-    @FXML
     private void clearClick(ActionEvent event) {
         usernameTextField.clear();
         passwordPasswordField.clear();
@@ -198,4 +263,12 @@ public class LoginViewController implements Initializable {
         return valid;
     }
 
+    @FXML
+    private void closeClick(MouseEvent event) {
+        Platform.exit();
+    }
+
+    public VBox getRoot() {
+        return root;
+    }
 }

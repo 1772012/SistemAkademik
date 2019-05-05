@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -46,29 +47,35 @@ public class MataKuliahEditViewController implements Initializable {
     }
 
     @FXML
-    private void clearClick(ActionEvent event) {
-        namaMKTextField.clear();
-        kurikulumComboBox.setValue(null);
-        deskripsiTextArea.clear();
-        sksTeoriTextField.clear();
-        sksPraktikumTextField.clear();
-    }
-
-    @FXML
     private void saveClick(ActionEvent event) {
-        selectedMatakuliah.setNamaMataKuliah(namaMKTextField.getText());
-        selectedMatakuliah.setKurikulum(kurikulumComboBox.getValue());
-        selectedMatakuliah.setDeskripsiMataKuliah(deskripsiTextArea.getText());
-        selectedMatakuliah.setSkspraktikumMataKuliah(Integer.parseInt(
-                sksPraktikumTextField.getText()));
-        selectedMatakuliah.setSksteoriMataKuliah(Integer.parseInt(
-                sksTeoriTextField.getText()));
-        this.mainController.getMatakuliahDaoImpl().
-                updateData(selectedMatakuliah);
-        this.mainController.getMatakuliahs().clear();
-        this.mainController.getMatakuliahs().addAll(this.mainController.
-                getMatakuliahDaoImpl().getAllData());
-        ((Stage) root.getScene().getWindow()).close();
+
+        if (namaMKTextField.getText().
+                isEmpty() || sksTeoriTextField.getText().isEmpty()
+                || sksPraktikumTextField.getText().isEmpty()
+                || kurikulumComboBox.getValue() == null || deskripsiTextArea.
+                getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Cannot save data");
+            alert.setContentText("Please fill the blank text field!");
+            alert.show();
+        } else {
+            selectedMatakuliah.setNamaMataKuliah(namaMKTextField.getText());
+            selectedMatakuliah.setKurikulum(kurikulumComboBox.getValue());
+            selectedMatakuliah.setDeskripsiMataKuliah(deskripsiTextArea.
+                    getText());
+            selectedMatakuliah.setSkspraktikumMataKuliah(Integer.parseInt(
+                    sksPraktikumTextField.getText()));
+            selectedMatakuliah.setSksteoriMataKuliah(Integer.parseInt(
+                    sksTeoriTextField.getText()));
+            this.mainController.getMatakuliahDaoImpl().
+                    updateData(selectedMatakuliah);
+            this.mainController.getMatakuliahs().clear();
+            this.mainController.getMatakuliahs().addAll(this.mainController.
+                    getMatakuliahDaoImpl().getAllData());
+            this.mainController.getSaveToExcelClick().setDisable(false);
+            ((Stage) root.getScene().getWindow()).close();
+        }
+
     }
 
     public void setMainController(MataKuliahViewController mainController) {
@@ -84,6 +91,11 @@ public class MataKuliahEditViewController implements Initializable {
         sksPraktikumTextField.setText(String.valueOf(selectedMatakuliah.
                 getSkspraktikumMataKuliah()));
         kurikulumComboBox.setValue(selectedMatakuliah.getKurikulum());
+    }
+
+    @FXML
+    private void closeClick(ActionEvent event) {
+        ((Stage) root.getScene().getWindow()).close();
     }
 
 }

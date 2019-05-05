@@ -41,14 +41,14 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="DBSistemAkademik"/>
+  <table-filter match-name="matakuliah"/>
+  <table-filter match-name="jabatan"/>
   <table-filter match-name="nilai"/>
+  <table-filter match-name="account"/>
   <table-filter match-name="mahasiswa"/>
   <table-filter match-name="wisuda"/>
-  <table-filter match-name="jadwalkelas"/>
   <table-filter match-name="kurikulum"/>
   <table-filter match-name="dosen"/>
-  <table-filter match-name="jabatan"/>
+  <table-filter match-name="jadwalkelas"/>
   <table-filter match-name="jurusan"/>
-  <table-filter match-name="matakuliah"/>
-  <table-filter match-name="account"/>
 </hibernate-reverse-engineering>

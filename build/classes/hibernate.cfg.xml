@@ -45,18 +45,19 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/DBSistemAkademik?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.autocommit">false</property>
     <property name="hibernate.connection.isolation">2</property>
-    <mapping class="com.kafka.entity.Jurusan"/>
-    <mapping class="com.kafka.entity.Mahasiswa"/>
-    <mapping class="com.kafka.entity.Jadwalkelas"/>
+    <property name="hibernate.connection.autocommit">false</property>
+    <mapping class="com.kafka.entity.NilaiId"/>
     <mapping class="com.kafka.entity.Nilai"/>
-    <mapping class="com.kafka.entity.Wisuda"/>
-    <mapping class="com.kafka.entity.Dosen"/>
-    <mapping class="com.kafka.entity.WisudaId"/>
     <mapping class="com.kafka.entity.Matakuliah"/>
     <mapping class="com.kafka.entity.Jabatan"/>
     <mapping class="com.kafka.entity.Account"/>
     <mapping class="com.kafka.entity.Kurikulum"/>
+    <mapping class="com.kafka.entity.Jurusan"/>
+    <mapping class="com.kafka.entity.Mahasiswa"/>
+    <mapping class="com.kafka.entity.Jadwalkelas"/>
+    <mapping class="com.kafka.entity.Wisuda"/>
+    <mapping class="com.kafka.entity.Dosen"/>
+    <mapping class="com.kafka.entity.WisudaId"/>
   </session-factory>
 </hibernate-configuration>

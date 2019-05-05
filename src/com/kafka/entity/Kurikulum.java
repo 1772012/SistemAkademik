@@ -1,5 +1,5 @@
 package com.kafka.entity;
-// Generated May 3, 2019 5:38:29 PM by Hibernate Tools 4.3.1
+// Generated May 5, 2019 2:37:27 PM by Hibernate Tools 4.3.1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,6 +27,13 @@ public class Kurikulum implements java.io.Serializable {
     private Set<Matakuliah> matakuliahs = new HashSet<Matakuliah>(0);
 
     public Kurikulum() {
+    }
+
+    public Kurikulum(Integer idkurikulum, String namaKurikulum,
+            boolean statusAktifKurikulum) {
+        this.idkurikulum = idkurikulum;
+        this.namaKurikulum = namaKurikulum;
+        this.statusAktifKurikulum = statusAktifKurikulum;
     }
 
     public Kurikulum(String namaKurikulum, boolean statusAktifKurikulum,
@@ -77,7 +84,7 @@ public class Kurikulum implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return this.namaKurikulum;
+        return this.getNamaKurikulum();
     }
 
 }

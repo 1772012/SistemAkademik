@@ -3,40 +3,32 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenViewController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem fx:id="closeMenu" mnemonicParsing="false" onAction="#closeClick" text="Close" />
-            </items>
-          </Menu>
-          <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem fx:id="aboutMenu" mnemonicParsing="false" onAction="#aboutClick" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="640.0" style="-fx-background-color: #1d3557;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenViewController">
+   <bottom>
+      <HBox prefHeight="28.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+         <children>
+            <Label fx:id="aboutLabel" text="Created by : Kafka Febianto Agiharta (1772012)" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="12.0" />
+               </font></Label>
+         </children></HBox>
+   </bottom>
    <center>
-      <SplitPane dividerPositions="0.3" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <items>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
             <VBox prefHeight="540.0" prefWidth="199.0">
                <children>
                   <GridPane>
@@ -44,8 +36,6 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -56,31 +46,47 @@
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </padding>
                      <children>
-                        <TextField fx:id="namaDosenTextField" GridPane.rowIndex="1" />
-                        <Label fx:id="namaDosenLabel" text="Cari Nama Dosen : " />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="1">
+                           <children>
+                              <Button fx:id="addDosenButton" mnemonicParsing="false" onAction="#addDosenClick" style="-fx-background-radius: 20; -fx-background-color: #64f58d;" text="+" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="viewDosenButton" disable="true" mnemonicParsing="false" onAction="#viewDosenClick" style="-fx-background-radius: 20; -fx-background-color: #f9c22e;" text="View" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="editDosenButton" disable="true" mnemonicParsing="false" onAction="#editDosenClick" style="-fx-background-radius: 20; -fx-background-color: #f9c22e;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="12.0" />
+                                 </font></Button>
+                           </children>
+                        </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="3">
                            <children>
-                              <Button fx:id="addDosenButton" mnemonicParsing="false" onAction="#addDosenClick" text="+" />
-                              <Button fx:id="viewDosenButton" disable="true" mnemonicParsing="false" onAction="#viewDosenClick" text="View" />
-                              <Button fx:id="editDosenButton" disable="true" mnemonicParsing="false" onAction="#editDosenClick" text="Edit" />
+                              <Button fx:id="saveDosenButton" disable="true" mnemonicParsing="false" onAction="#saveDosenClick" style="-fx-background-radius: 20; -fx-background-color: #64f58d;" text="Save" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="loadDosenButton" mnemonicParsing="false" onAction="#loadDosenClick" style="-fx-background-radius: 20; -fx-background-color: #64f58d;" text="Load" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="5">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="4">
                            <children>
-                              <Button fx:id="saveDosenButton" disable="true" mnemonicParsing="false" onAction="#saveDosenClick" text="Save" />
-                              <Button fx:id="loadDosenButton" mnemonicParsing="false" onAction="#loadDosenClick" text="Load" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="6">
-                           <children>
-                              <Button fx:id="printDosenButton" mnemonicParsing="false" onAction="#printDosenClick" text="Print" />
+                              <Button fx:id="printDosenButton" mnemonicParsing="false" onAction="#printDosenClick" style="-fx-background-radius: 20; -fx-background-color: #7a5c58;" text="Print" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri Light" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
                      </children>
                   </GridPane>
                </children>
             </VBox>
-            <TableView fx:id="dosenTableView" onMouseClicked="#dosenTableViewClick" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="dosenTableView" onMouseClicked="#dosenTableViewClick" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="nikDosenCol" editable="false" prefWidth="125.0" resizable="false" text="NIK" />
                 <TableColumn fx:id="nidnDosenCol" prefWidth="125.0" text="NIDN" visible="false" />
@@ -91,15 +97,44 @@
                   <TableColumn fx:id="namaDosenFullCol" editable="false" prefWidth="325.0" resizable="false" text="NAMA DOSEN" />
               </columns>
             </TableView>
-         </items></SplitPane>
+         </children>
+      </HBox>
    </center>
-   <bottom>
-      <HBox prefHeight="28.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </padding>
+   <top>
+      <GridPane prefHeight="40.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Label fx:id="aboutLabel" text="Created by : Kafka Febianto Agiharta (1772012)" />
-         </children></HBox>
-   </bottom>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label text="DOSEN" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#closeClick" style="-fx-background-radius: 20; -fx-background-color: #e63946;" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </top>
 </BorderPane>

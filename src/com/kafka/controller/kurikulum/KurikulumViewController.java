@@ -1,5 +1,6 @@
 package com.kafka.controller.kurikulum;
 
+import com.kafka.controller.main.MainMenuViewController;
 import com.kafka.dao.KurikulumDaoImpl;
 import com.kafka.entity.Kurikulum;
 import java.net.URL;
@@ -19,6 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -27,14 +30,6 @@ import javafx.scene.input.MouseEvent;
  */
 public class KurikulumViewController implements Initializable {
 
-    @FXML
-    private Menu fileMenuLabel;
-    @FXML
-    private MenuItem closeMenuLabel;
-    @FXML
-    private Menu helpMenuLabel;
-    @FXML
-    private MenuItem aboutMenuLabel;
     @FXML
     private Label namaKurikulumLabel;
     @FXML
@@ -57,6 +52,10 @@ public class KurikulumViewController implements Initializable {
     private KurikulumDaoImpl kurikulumDaoImpl;
 
     private Kurikulum selectedKurikulum;
+
+    private MainMenuViewController mainController;
+    @FXML
+    private BorderPane root;
 
     /**
      * Initializes the controller class.
@@ -117,5 +116,15 @@ public class KurikulumViewController implements Initializable {
         namaKurikulumTextField.setText(selectedKurikulum.getNamaKurikulum());
         statusAktifCB.setSelected(Boolean.parseBoolean(String.valueOf(
                 selectedKurikulum.getStatusAktifKurikulum())));
+    }
+
+    @FXML
+    private void closeClick(ActionEvent event) {
+        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
+        ((Stage) root.getScene().getWindow()).close();
+    }
+
+    public void setMainController(MainMenuViewController mainController) {
+        this.mainController = mainController;
     }
 }

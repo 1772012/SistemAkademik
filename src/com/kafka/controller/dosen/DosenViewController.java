@@ -1,6 +1,7 @@
 package com.kafka.controller.dosen;
 
 import com.kafka.MainApp;
+import com.kafka.controller.main.MainMenuViewController;
 import com.kafka.dao.DosenDaoImpl;
 import com.kafka.entity.Dosen;
 import java.io.IOException;
@@ -38,8 +39,6 @@ import javafx.stage.Stage;
 public class DosenViewController implements Initializable {
 
     @FXML
-    private TextField namaDosenTextField;
-    @FXML
     private Button editDosenButton;
     @FXML
     private Button saveDosenButton;
@@ -60,17 +59,7 @@ public class DosenViewController implements Initializable {
     @FXML
     private TableColumn<Dosen, String> namaDosenFullCol;
     @FXML
-    private Menu fileMenu;
-    @FXML
-    private MenuItem closeMenu;
-    @FXML
-    private Menu helpMenu;
-    @FXML
-    private MenuItem aboutMenu;
-    @FXML
     private Label aboutLabel;
-    @FXML
-    private Label namaDosenLabel;
     @FXML
     private Button addDosenButton;
     @FXML
@@ -89,6 +78,8 @@ public class DosenViewController implements Initializable {
     private Stage addDosenStage, editDosenStage, viewDosenStage;
 
     private Dosen selectedDosen;
+
+    private MainMenuViewController mainController;
 
     /**
      * Initializes the controller class.
@@ -144,31 +135,26 @@ public class DosenViewController implements Initializable {
 
     @FXML
     private void closeClick(ActionEvent event) {
-        Platform.exit();
-    }
-
-    @FXML
-    private void aboutClick(ActionEvent event) {
+        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
+        ((Stage) root.getScene().getWindow()).close();
     }
 
     @FXML
     private void addDosenClick(ActionEvent event) {
         try {
-            if (addDosenStage == null) {
-                addDosenStage = new Stage();
-                addDosenStage.setTitle("Add Dosen");
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(MainApp.class.getResource(
-                        "view/dosen/DosenAddView.fxml"));
-                VBox pane = loader.load();
-                DosenAddViewController controller = loader.getController();
-                controller.setMainController(this);
-                Scene scene = new Scene(pane);
-                addDosenStage.setScene(scene);
-                addDosenStage.setResizable(false);
-                addDosenStage.initOwner(root.getScene().getWindow());
-                addDosenStage.initModality(Modality.APPLICATION_MODAL);
-            }
+            addDosenStage = new Stage();
+            addDosenStage.setTitle("Add Dosen");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/dosen/DosenAddView.fxml"));
+            VBox pane = loader.load();
+            DosenAddViewController controller = loader.getController();
+            controller.setMainController(this);
+            Scene scene = new Scene(pane);
+            addDosenStage.setScene(scene);
+            addDosenStage.setResizable(false);
+            addDosenStage.initOwner(root.getScene().getWindow());
+            addDosenStage.initModality(Modality.APPLICATION_MODAL);
             if (!addDosenStage.isShowing()) {
                 addDosenStage.show();
             } else {
@@ -183,21 +169,19 @@ public class DosenViewController implements Initializable {
     @FXML
     private void editDosenClick(ActionEvent event) {
         try {
-            if (editDosenStage == null) {
-                editDosenStage = new Stage();
-                editDosenStage.setTitle("Edit Dosen");
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(MainApp.class.getResource(
-                        "view/dosen/DosenEditView.fxml"));
-                VBox pane = loader.load();
-                DosenEditViewController controller = loader.getController();
-                controller.setMainController(this);
-                Scene scene = new Scene(pane);
-                editDosenStage.setScene(scene);
-                editDosenStage.setResizable(false);
-                editDosenStage.initOwner(root.getScene().getWindow());
-                editDosenStage.initModality(Modality.APPLICATION_MODAL);
-            }
+            editDosenStage = new Stage();
+            editDosenStage.setTitle("Edit Dosen");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/dosen/DosenEditView.fxml"));
+            VBox pane = loader.load();
+            DosenEditViewController controller = loader.getController();
+            controller.setMainController(this);
+            Scene scene = new Scene(pane);
+            editDosenStage.setScene(scene);
+            editDosenStage.setResizable(false);
+            editDosenStage.initOwner(root.getScene().getWindow());
+            editDosenStage.initModality(Modality.APPLICATION_MODAL);
             if (!editDosenStage.isShowing()) {
                 editDosenStage.show();
             } else {
@@ -276,6 +260,10 @@ public class DosenViewController implements Initializable {
 
     public TableView<Dosen> getTableDosen() {
         return dosenTableView;
+    }
+
+    public void setMainController(MainMenuViewController mainController) {
+        this.mainController = mainController;
     }
 
 }

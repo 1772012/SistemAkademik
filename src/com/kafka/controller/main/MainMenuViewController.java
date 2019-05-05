@@ -1,6 +1,9 @@
 package com.kafka.controller.main;
 
 import com.kafka.MainApp;
+import com.kafka.controller.dosen.DosenViewController;
+import com.kafka.controller.kurikulum.KurikulumViewController;
+import com.kafka.controller.matakuliah.MataKuliahViewController;
 import com.kafka.entity.Account;
 import java.io.IOException;
 import java.net.URL;
@@ -9,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,10 +29,13 @@ import javafx.stage.StageStyle;
 /**
  * FXML Controller class
  *
- * @author Kafka 1772012
+ * @author Kafka Febianto Agiharta (1772012)
  */
 public class MainMenuViewController implements Initializable {
 
+    //  ======================================================
+    //  FXML Properties
+    //  ======================================================
     @FXML
     private VBox root;
     @FXML
@@ -40,14 +45,29 @@ public class MainMenuViewController implements Initializable {
     @FXML
     private Label namaBelakangLabel;
 
+    //  ======================================================
+    //  Properties
+    //  ======================================================
     private Stage absensiStage, kelasStage, kurikulumStage, dosenStage, mahasiswaStage, jadwalStage, wisudaStage, accountStage, nilaiStage;
 
     private LoginViewController mainController;
 
     private Account account;
 
+    //  ======================================================
+    //  EventHandler Properties
+    //  ======================================================
     private double accountX;
     private double accountY;
+
+    private double matakuliahX;
+    private double matakuliahY;
+
+    private double kurikulumX;
+    private double kurikulumY;
+
+    private double dosenX;
+    private double dosenY;
 
     /**
      * Initializes the controller class.
@@ -57,28 +77,53 @@ public class MainMenuViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
     }
 
+    public void setMainController(LoginViewController mainController) {
+        this.mainController = mainController;
+        namaDepanLabel.setText(cekNamaDepan(this.mainController.getUsername(),
+                this.mainController.getPassword()).toUpperCase());
+        namaBelakangLabel.setText(cekNamaBelakang(this.mainController.
+                getUsername(), this.mainController.getPassword()).toUpperCase());
+        account = getAccountToThis(this.mainController.getUsername(),
+                this.mainController.getPassword());
+    }
+
+    //  ======================================================
+    //  Click Event
+    //  ======================================================
     @FXML
-    private void absensiClick(MouseEvent event) {
+    private void accountClick(MouseEvent event) {
         try {
-            absensiStage = new Stage();
-            absensiStage.setTitle("Absensi");
+            accountStage = new Stage();
+            accountStage.setTitle("Dosen");
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource(
-                    "view/absensi/AbsensiView.fxml"));
-            BorderPane pane = loader.load();
+                    "view/main/AccountView.fxml"));
+            HBox pane = loader.load();
+            AccountViewController controller = loader.getController();
+            controller.setMainController(this);
             Scene scene = new Scene(pane);
-            absensiStage.setScene(scene);
-            absensiStage.setResizable(false);
-            absensiStage.initOwner(root.getScene().getWindow());
-            absensiStage.initModality(Modality.APPLICATION_MODAL);
+            accountStage.setScene(scene);
+            accountStage.setResizable(false);
+            accountStage.initStyle(StageStyle.UNDECORATED);
+            accountStage.initOwner(root.getScene().getWindow());
+            accountStage.initModality(Modality.APPLICATION_MODAL);
+            ((Stage) root.getScene().getWindow()).hide();
 
-            if (!absensiStage.isShowing()) {
-                absensiStage.show();
+            pane.setOnMousePressed((MouseEvent event1) -> {
+                accountX = accountStage.getX() - event1.getScreenX();
+                accountY = accountStage.getY() - event1.getScreenY();
+            });
+
+            pane.setOnMouseDragged((MouseEvent event1) -> {
+                accountStage.setX(event1.getScreenX() + accountX);
+                accountStage.setY(event1.getScreenY() + accountY);
+            });
+            if (!accountStage.isShowing()) {
+                accountStage.show();
             } else {
-                absensiStage.toFront();
+                accountStage.toFront();
             }
         } catch (IOException e) {
             Logger.getLogger(MainMenuViewController.class.getName()).
@@ -89,19 +134,31 @@ public class MainMenuViewController implements Initializable {
     @FXML
     private void kelasClick(MouseEvent event) {
         try {
-            if (kelasStage == null) {
-                kelasStage = new Stage();
-                kelasStage.setTitle("Mata Kuliah");
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(MainApp.class.getResource(
-                        "view/matakuliah/MataKuliahView.fxml"));
-                BorderPane pane = loader.load();
-                Scene scene = new Scene(pane);
-                kelasStage.setScene(scene);
-                kelasStage.setResizable(false);
-                kelasStage.initOwner(root.getScene().getWindow());
-                kelasStage.initModality(Modality.APPLICATION_MODAL);
-            }
+            kelasStage = new Stage();
+            kelasStage.setTitle("Mata Kuliah");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/matakuliah/MataKuliahView.fxml"));
+            BorderPane pane = loader.load();
+            MataKuliahViewController controller = loader.getController();
+            controller.setMainController(this);
+            Scene scene = new Scene(pane);
+            kelasStage.setScene(scene);
+            kelasStage.setResizable(false);
+            kelasStage.initStyle(StageStyle.UNDECORATED);
+            kelasStage.initOwner(root.getScene().getWindow());
+            kelasStage.initModality(Modality.APPLICATION_MODAL);
+            ((Stage) root.getScene().getWindow()).hide();
+
+            pane.setOnMousePressed((MouseEvent event1) -> {
+                matakuliahX = kelasStage.getX() - event1.getScreenX();
+                matakuliahY = kelasStage.getY() - event1.getScreenY();
+            });
+
+            pane.setOnMouseDragged((MouseEvent event1) -> {
+                kelasStage.setX(event1.getScreenX() + matakuliahX);
+                kelasStage.setY(event1.getScreenY() + matakuliahY);
+            });
             if (!kelasStage.isShowing()) {
                 kelasStage.show();
             } else {
@@ -116,20 +173,33 @@ public class MainMenuViewController implements Initializable {
     @FXML
     private void kurikulumClick(MouseEvent event) {
         try {
-            if (kurikulumStage == null) {
-                kurikulumStage = new Stage();
-                kurikulumStage.setTitle("Kurikulum");
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(MainApp.class.getResource(
-                        "view/kurikulum/KurikulumView.fxml"));
-                BorderPane pane = loader.load();
-                Scene scene = new Scene(pane);
-                kurikulumStage.setScene(scene);
-                kurikulumStage.setResizable(false);
-                kurikulumStage.
-                        initOwner(root.getScene().getWindow());
-                kurikulumStage.initModality(Modality.APPLICATION_MODAL);
-            }
+            kurikulumStage = new Stage();
+            kurikulumStage.setTitle("Kurikulum");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/kurikulum/KurikulumView.fxml"));
+            BorderPane pane = loader.load();
+            KurikulumViewController controller = loader.getController();
+            controller.setMainController(this);
+            Scene scene = new Scene(pane);
+            kurikulumStage.setScene(scene);
+            kurikulumStage.setResizable(false);
+            kurikulumStage.
+                    initOwner(root.getScene().getWindow());
+            kurikulumStage.initModality(Modality.APPLICATION_MODAL);
+            kurikulumStage.initStyle(StageStyle.UNDECORATED);
+            ((Stage) root.getScene().getWindow()).hide();
+
+            pane.setOnMousePressed((MouseEvent event1) -> {
+                kurikulumX = kurikulumStage.getX() - event1.getScreenX();
+                kurikulumY = kurikulumStage.getY() - event1.getScreenY();
+            });
+
+            pane.setOnMouseDragged((MouseEvent event1) -> {
+                kurikulumStage.setX(event1.getScreenX() + kurikulumX);
+                kurikulumStage.setY(event1.getScreenY() + kurikulumY);
+            });
+
             if (!kurikulumStage.isShowing()) {
                 kurikulumStage.show();
             } else {
@@ -151,11 +221,25 @@ public class MainMenuViewController implements Initializable {
                 loader.setLocation(MainApp.class.getResource(
                         "view/dosen/DosenView.fxml"));
                 BorderPane pane = loader.load();
+                DosenViewController controller = loader.getController();
+                controller.setMainController(this);
                 Scene scene = new Scene(pane);
                 dosenStage.setScene(scene);
                 dosenStage.setResizable(false);
                 dosenStage.initOwner(root.getScene().getWindow());
                 dosenStage.initModality(Modality.APPLICATION_MODAL);
+                dosenStage.initStyle(StageStyle.UNDECORATED);
+                ((Stage) root.getScene().getWindow()).hide();
+                pane.setOnMousePressed((MouseEvent event1) -> {
+                    dosenX = dosenStage.getX() - event1.getScreenX();
+                    dosenY = dosenStage.getY() - event1.getScreenY();
+                });
+
+                pane.setOnMouseDragged((MouseEvent event1) -> {
+                    dosenStage.setX(event1.getScreenX() + dosenX);
+                    dosenStage.setY(event1.getScreenY() + dosenY);
+                });
+
             }
             if (!dosenStage.isShowing()) {
                 dosenStage.show();
@@ -250,16 +334,50 @@ public class MainMenuViewController implements Initializable {
         }
     }
 
-    public void setMainController(LoginViewController mainController) {
-        this.mainController = mainController;
-        namaDepanLabel.setText(cekNamaDepan(this.mainController.getUsername(),
-                this.mainController.getPassword()).toUpperCase());
-        namaBelakangLabel.setText(cekNamaBelakang(this.mainController.
-                getUsername(), this.mainController.getPassword()).toUpperCase());
-        account = getAccountToThis(this.mainController.getUsername(),
-                this.mainController.getPassword());
+    @FXML
+    private void absensiClick(MouseEvent event) {
+        try {
+            absensiStage = new Stage();
+            absensiStage.setTitle("Absensi");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(
+                    "view/absensi/AbsensiView.fxml"));
+            BorderPane pane = loader.load();
+            Scene scene = new Scene(pane);
+            absensiStage.setScene(scene);
+            absensiStage.setResizable(false);
+            absensiStage.initOwner(root.getScene().getWindow());
+            absensiStage.initModality(Modality.APPLICATION_MODAL);
+
+            if (!absensiStage.isShowing()) {
+                absensiStage.show();
+            } else {
+                absensiStage.toFront();
+            }
+        } catch (IOException e) {
+            Logger.getLogger(MainMenuViewController.class.getName()).
+                    log(Level.SEVERE, null, e);
+        }
     }
 
+    @FXML
+    private void nilaiClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void closeClick(MouseEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    private void logoutClick(ActionEvent event) {
+        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
+        ((Stage) root.getScene().getWindow()).close();
+    }
+
+    //  ======================================================
+    //  Methods
+    //  ======================================================
     public String cekJabatan(String user, String pass) {
         String jabatan = "null";
         for (int i = 0; i < this.mainController.getAccounts().size(); i++) {
@@ -304,6 +422,9 @@ public class MainMenuViewController implements Initializable {
         return namaBelakang;
     }
 
+    //  ======================================================
+    //  Getter / Setter
+    //  ======================================================
     public Account getAccountToThis(String user, String pass) {
         for (int i = 0; i < this.mainController.getAccounts().size(); i++) {
             if (user.equals(this.mainController.getAccounts().get(i).
@@ -315,60 +436,6 @@ public class MainMenuViewController implements Initializable {
             }
         }
         return account;
-    }
-
-    @FXML
-    private void accountClick(MouseEvent event) {
-        try {
-            accountStage = new Stage();
-            accountStage.setTitle("Dosen");
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource(
-                    "view/main/AccountView.fxml"));
-            HBox pane = loader.load();
-            AccountViewController controller = loader.getController();
-            controller.setMainController(this);
-            Scene scene = new Scene(pane);
-            accountStage.setScene(scene);
-            accountStage.setResizable(false);
-            accountStage.initStyle(StageStyle.UNDECORATED);
-            accountStage.initOwner(root.getScene().getWindow());
-            accountStage.initModality(Modality.APPLICATION_MODAL);
-            ((Stage) root.getScene().getWindow()).hide();
-
-            pane.setOnMousePressed((MouseEvent event1) -> {
-                accountX = accountStage.getX() - event1.getScreenX();
-                accountY = accountStage.getY() - event1.getScreenY();
-            });
-
-            pane.setOnMouseDragged((MouseEvent event1) -> {
-                accountStage.setX(event1.getScreenX() + accountX);
-                accountStage.setY(event1.getScreenY() + accountY);
-            });
-            if (!accountStage.isShowing()) {
-                accountStage.show();
-            } else {
-                accountStage.toFront();
-            }
-        } catch (IOException e) {
-            Logger.getLogger(MainMenuViewController.class.getName()).
-                    log(Level.SEVERE, null, e);
-        }
-    }
-
-    @FXML
-    private void closeClick(MouseEvent event) {
-        Platform.exit();
-    }
-
-    @FXML
-    private void logoutClick(ActionEvent event) {
-        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
-        ((Stage) root.getScene().getWindow()).close();
-    }
-
-    @FXML
-    private void nilaiClick(MouseEvent event) {
     }
 
     public Account getAccount() {

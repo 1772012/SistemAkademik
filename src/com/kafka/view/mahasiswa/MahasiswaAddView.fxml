@@ -10,10 +10,45 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.mahasiswa.AddMahasiswaViewController">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="500.0" style="-fx-background-color: #457b9d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.mahasiswa.MahasiswaAddViewController">
    <children>
+      <GridPane prefHeight="40.0" style="-fx-background-color: #a8dadc;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label text="TAMBAH MAHASISWA" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#closeClick" style="-fx-background-radius: 20; -fx-background-color: #e63946;" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
       <GridPane>
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="104.0" />
@@ -22,36 +57,67 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="NRP" />
-            <Label text="Nama Lengkap" GridPane.rowIndex="1" />
-            <Label text="IPK" GridPane.rowIndex="2" />
-            <Label text="Dosen Wali" GridPane.rowIndex="4" />
-            <Label text="Kurikulum" GridPane.rowIndex="3" />
-            <TextField fx:id="namaTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox fx:id="kurikulumComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="dosenWaliComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="NRP" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></Label>
+            <Label text="Nama Depan" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></Label>
+            <Label text="Email" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></Label>
+            <Label text="Dosen Wali" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></Label>
+            <TextField fx:id="namaDepanTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
+            <ComboBox fx:id="dosenWaliComboBox" prefHeight="25.0" prefWidth="398.0" promptText="Pilih..." style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Button mnemonicParsing="false" onAction="#clearClick" text="Clear" />
-                  <Button mnemonicParsing="false" onAction="#createClick" text="Create" />
+                  <Button mnemonicParsing="false" onAction="#createClick" style="-fx-background-radius: 20; -fx-background-color: #64f58d;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></Button>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <TextField fx:id="nrpTextField" prefHeight="25.0" prefWidth="149.0" />
+                  <TextField fx:id="nrpTextField" prefHeight="25.0" prefWidth="149.0" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <TextField fx:id="ipkTextField" prefHeight="25.0" prefWidth="102.0" />
+                  <TextField fx:id="emailTextfield" prefHeight="25.0" prefWidth="102.0" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></TextField>
                </children>
             </HBox>
+            <Label text="Nama Belakang" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="namaBelakangTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </TextField>
          </children>
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

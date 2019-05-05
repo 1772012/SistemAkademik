@@ -12,36 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="root" alignment="TOP_CENTER" prefHeight="638.0" prefWidth="480.0" style="-fx-background-color: #a8dadc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.main.MainMenuViewController">
+<VBox fx:id="root" alignment="TOP_CENTER" prefHeight="638.0" prefWidth="480.0" style="-fx-background-color: #457b9d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.main.MainMenuViewController">
     <children>
-      <GridPane style="-fx-background-color: white;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <HBox alignment="CENTER" onMouseClicked="#closeClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #e63946;" GridPane.columnIndex="9">
-               <children>
-                  <Label text="X" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </GridPane>
       <GridPane>
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,7 +28,7 @@
                <children>
                   <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutClick" style="-fx-background-radius: 15; -fx-background-color: #1d3557;" text="LOGOUT" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Light" size="14.0" />
+                        <Font name="Berlin Sans FB Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
@@ -65,12 +37,12 @@
                <children>
                   <Label fx:id="namaDepanLabel" text="first" textFill="#f1faee">
                      <font>
-                        <Font name="Calibri Bold" size="24.0" />
+                        <Font name="Berlin Sans FB Bold" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="namaBelakangLabel" text="last" textFill="#e63946">
                      <font>
-                        <Font name="Calibri Bold" size="24.0" />
+                        <Font name="Berlin Sans FB Bold" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -80,7 +52,7 @@
             <Insets bottom="16.0" top="16.0" />
          </VBox.margin>
       </GridPane>
-        <GridPane alignment="CENTER" prefHeight="547.0" prefWidth="478.0" style="-fx-background-color: #e63946;" stylesheets="@../../style/mainmenuview.css">
+        <GridPane alignment="CENTER" prefHeight="547.0" prefWidth="478.0" style="-fx-background-color: #1d3557;" stylesheets="@../../style/mainmenuview.css">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -95,7 +67,7 @@
                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
             </padding>
             <children>
-                <HBox alignment="CENTER" onMouseClicked="#absensiClick" prefHeight="175.0" prefWidth="141.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <HBox alignment="CENTER" onMouseClicked="#absensiClick" prefHeight="175.0" prefWidth="141.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -106,7 +78,7 @@
                                 </ImageView>
                                 <Label text="Absensi" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -116,7 +88,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#kelasClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.columnIndex="1">
+                <HBox alignment="CENTER" onMouseClicked="#kelasClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.columnIndex="1">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -125,9 +97,9 @@
                                         <Image url="@../../images/matakuliah.png" />
                                     </image>
                                 </ImageView>
-                                <Label text="Kelas" textFill="WHITE">
+                                <Label text="Matakuliah" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -137,7 +109,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#kurikulumClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.columnIndex="2">
+                <HBox alignment="CENTER" onMouseClicked="#kurikulumClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.columnIndex="2">
                     <children>
                         <VBox alignment="CENTER" prefHeight="157.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -148,7 +120,7 @@
                                 </ImageView>
                                 <Label text="Kurikulum" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -158,7 +130,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#dosenClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.rowIndex="1">
+                <HBox alignment="CENTER" onMouseClicked="#dosenClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.rowIndex="1">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -169,7 +141,7 @@
                                 </ImageView>
                                 <Label text="Dosen" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -179,7 +151,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#mahasiswaClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <HBox alignment="CENTER" onMouseClicked="#mahasiswaClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -190,7 +162,7 @@
                                 </ImageView>
                                 <Label text="Mahasiswa" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -200,7 +172,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#jadwalClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <HBox alignment="CENTER" onMouseClicked="#jadwalClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -211,7 +183,7 @@
                                 </ImageView>
                                 <Label text="Jadwal" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -221,7 +193,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#wisudaClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.rowIndex="2">
+                <HBox alignment="CENTER" onMouseClicked="#wisudaClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.rowIndex="2">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -232,7 +204,7 @@
                                 </ImageView>
                                 <Label text="Wisuda" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -242,7 +214,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#nilaiClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <HBox alignment="CENTER" onMouseClicked="#nilaiClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -253,7 +225,7 @@
                                 </ImageView>
                                 <Label text="Nilai" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -263,7 +235,7 @@
                         <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                     </GridPane.margin>
                 </HBox>
-                <HBox alignment="CENTER" onMouseClicked="#accountClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #457b9d; -fx-background-radius: 30;">
+                <HBox alignment="CENTER" onMouseClicked="#accountClick" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #53b3cb; -fx-background-radius: 80;">
                     <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
@@ -271,9 +243,9 @@
                            <image>
                               <Image url="@../../images/account.png" />
                            </image></ImageView>
-                                <Label text="Account" textFill="WHITE">
+                                <Label text="Akun" textFill="WHITE">
                                     <font>
-                                        <Font name="Comic Sans MS Bold" size="18.0" />
+                                        <Font name="Berlin Sans FB Bold" size="16.0" />
                                     </font>
                                 </Label>
                             </children>

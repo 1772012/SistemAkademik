@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/dao/DosenDaoImpl.java</file>
             <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/controller/matakuliah/MataKuliahViewController.java</file>
-            <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/entity/Kurikulum.java</file>
+            <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/controller/main/MainMenuViewController.java</file>
+            <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/entity/Dosen.java</file>
+            <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/controller/dosen/DosenViewController.java</file>
+            <file>file:/C:/Users/febia/Documents/Document%20Projects/Netbeans/SistemAkademik/src/com/kafka/controller/wisuda/WisudaViewController.java</file>
         </group>
     </open-files>
 </project-private>

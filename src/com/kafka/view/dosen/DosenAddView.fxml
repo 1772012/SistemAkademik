@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="480.0" style="-fx-background-color: #457b9d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenAddViewController">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="480.0" style="-fx-background-color: #457b9d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenAddViewController">
    <children>
-      <GridPane prefHeight="40.0">
+      <GridPane prefHeight="40.0" style="-fx-background-color: #a8dadc;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,7 +29,7 @@
                <children>
                   <Label text="TAMBAH DOSEN" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Italic" size="24.0" />
+                        <Font name="Berlin Sans FB" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -39,7 +39,10 @@
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-radius: 20;" text="X" />
+                  <Button mnemonicParsing="false" onAction="#closeClick" style="-fx-background-radius: 20; -fx-background-color: #e63946;" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="14.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>
@@ -65,47 +68,74 @@
          <children>
             <Label fx:id="nikLabel" text="NIK" textFill="WHITE">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
             <Label fx:id="nidnLabel" text="NIDN" textFill="WHITE" GridPane.rowIndex="1">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
             <Label fx:id="namaDepanLabel" text="Nama Depan" textFill="WHITE" GridPane.rowIndex="2">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
             <Label fx:id="namaBelakangLabel" text="Nama Belakang" textFill="WHITE" GridPane.rowIndex="3">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
             <Label fx:id="gelarDepanLabel" text="Gelar Depan" textFill="WHITE" GridPane.rowIndex="4">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
             <Label fx:id="gelarBelakangLabel" text="Gelar Belakang" textFill="WHITE" GridPane.rowIndex="5">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
-            <TextField fx:id="nikTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" />
-            <TextField fx:id="nidnTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="namaDepanTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="namaBelakangTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="gelarDepanTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="gelarBelakangTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="nikTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="nidnTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="namaDepanTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="namaBelakangTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="gelarDepanTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
+            <TextField fx:id="gelarBelakangTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
-                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveClick" style="-fx-background-radius: 20;" text="Save" />
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveClick" style="-fx-background-radius: 20; -fx-background-color: #64f58d;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font></Button>
                </children>
             </HBox>
             <Label text="Foto" textFill="WHITE" GridPane.rowIndex="6">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#uploadClick" style="-fx-background-radius: 20;" text="Upload" />
-                  <TextField fx:id="fileChooserTextField" editable="false" prefHeight="25.0" prefWidth="284.0" style="-fx-background-radius: 20;" />
+                  <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#uploadClick" style="-fx-background-radius: 20; -fx-background-color: #f9c22e;" text="Upload" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font></Button>
+                  <TextField fx:id="fileChooserTextField" editable="false" prefHeight="25.0" prefWidth="284.0" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></TextField>
                </children>
             </HBox>
          </children>

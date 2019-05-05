@@ -9,7 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -20,7 +22,7 @@ import javafx.stage.Stage;
 public class AccountViewController implements Initializable {
 
     @FXML
-    private HBox root;
+    private VBox root;
     @FXML
     private ImageView accountPics;
     @FXML
@@ -31,8 +33,6 @@ public class AccountViewController implements Initializable {
     private Label emailLabel;
     @FXML
     private Label notelpLabel;
-    @FXML
-    private Button closeButton;
 
     private MainMenuViewController mainController;
 
@@ -46,12 +46,6 @@ public class AccountViewController implements Initializable {
         // TODO
     }
 
-    @FXML
-    private void closeClick(ActionEvent event) {
-        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
-        ((Stage) root.getScene().getWindow()).close();
-    }
-
     public void setMainController(MainMenuViewController mainController) {
         this.mainController = mainController;
         account = this.mainController.getAccount();
@@ -62,6 +56,12 @@ public class AccountViewController implements Initializable {
                 setText(account.getJabatan().getNamaJabatan().toUpperCase());
         emailLabel.setText(account.getEmailAccount());
         notelpLabel.setText(account.getTelpAccount());
+    }
+
+    @FXML
+    private void closeClick(ActionEvent event) {
+        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
+        ((Stage) root.getScene().getWindow()).close();
     }
 
 }

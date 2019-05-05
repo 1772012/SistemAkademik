@@ -9,51 +9,121 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenViewView">
+<VBox fx:id="root" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="520.0" style="-fx-background-color: #457b9d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.dosen.DosenViewView">
    <children>
-      <ImageView fx:id="imageDosen" fitHeight="225.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-         <VBox.margin>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </VBox.margin>
-      </ImageView>
-      <GridPane>
+      <GridPane prefHeight="40.0" style="-fx-background-color: #a8dadc;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="113.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="462.0" minWidth="10.0" prefWidth="351.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <padding>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </padding>
          <children>
-            <Label fx:id="nikLabel" text="NIK" />
-            <Label fx:id="nidnLabel" text="NIDN" GridPane.rowIndex="1" />
-            <Label fx:id="namaDosenLabel" text="Nama Dosen" GridPane.rowIndex="2" />
-            <Label fx:id="gelarDepanLabel" text="Gelar Depan" GridPane.rowIndex="3" />
-            <Label fx:id="gelarBelakangLabel" text="Gelar Belakang" GridPane.rowIndex="4" />
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
                <children>
-                  <Button fx:id="closeClick" mnemonicParsing="false" text="Close" />
+                  <Label text="PROFIL DOSEN" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </HBox>
-            <Label fx:id="nikChangeLabel" text="-" GridPane.columnIndex="1" />
-            <Label fx:id="nidnChangeLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="namaDosenChangeLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="gelarDepanChangeLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="gelarBelakangChangeLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#closeClick" style="-fx-background-radius: 20; -fx-background-color: #e63946;" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </GridPane>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="imageDosen" fitHeight="225.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </HBox.margin>
+            </ImageView>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="122.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="462.0" minWidth="10.0" prefWidth="192.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label fx:id="nikLabel" text="NIK" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nidnLabel" text="NIDN" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="namaDosenLabel" text="Nama Dosen" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gelarDepanLabel" text="Gelar Depan" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gelarBelakangLabel" text="Gelar Belakang" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nikChangeLabel" text="-" textFill="#e4eb69" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nidnChangeLabel" text="-" textFill="#e4eb69" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="namaDosenChangeLabel" text="-" textFill="#e4eb69" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gelarDepanChangeLabel" text="-" textFill="#e4eb69" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gelarBelakangChangeLabel" text="-" textFill="#e4eb69" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
    </children>
 </VBox>

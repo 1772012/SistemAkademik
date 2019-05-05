@@ -14,7 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -142,7 +141,7 @@ public class RegisterViewController implements Initializable {
     }
 
     @FXML
-    private void closeClick(MouseEvent event) {
+    private void closeClick(ActionEvent event) {
         ((Stage) root.getScene().getWindow()).close();
         ((Stage) this.mainController.getRoot().getScene().getWindow()).
                 show();

@@ -15,11 +15,11 @@
 
 <BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #f15946;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.matakuliah.MataKuliahViewController">
    <bottom>
-      <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="800.0" style="-fx-background-color: #1d3557;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="800.0" style="-fx-background-color: #457b9d;" BorderPane.alignment="CENTER">
          <children>
             <Label text="Created by : Kafka Febian (1772012)" textFill="WHITE">
                <font>
-                  <Font name="Calibri Light Italic" size="12.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
          </children>
          <padding>
@@ -47,11 +47,11 @@
                            <children>
                               <Button mnemonicParsing="false" onAction="#addMKClick" style="-fx-background-radius: 14; -fx-background-color: #64f58d;" text="+" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri Bold" size="14.0" />
+                                    <Font name="Berlin Sans FB" size="16.0" />
                                  </font></Button>
                               <Button fx:id="editMKButton" disable="true" mnemonicParsing="false" onAction="#editMKClick" style="-fx-background-radius: 14; -fx-background-color: #f9c22e;" text="Edit" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri Bold" size="14.0" />
+                                    <Font name="Berlin Sans FB" size="16.0" />
                                  </font></Button>
                            </children>
                         </HBox>
@@ -59,11 +59,11 @@
                            <children>
                               <Button mnemonicParsing="false" onAction="#loadFromExcelClick" style="-fx-background-radius: 14; -fx-background-color: #64f58d;" text="Load" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri Bold" size="14.0" />
+                                    <Font name="Berlin Sans FB" size="16.0" />
                                  </font></Button>
                               <Button fx:id="saveToExcelClick" disable="true" mnemonicParsing="false" onAction="#saveToExcelClick" style="-fx-background-radius: 14; -fx-background-color: #64f58d;" text="Save" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri Bold" size="14.0" />
+                                    <Font name="Berlin Sans FB" size="16.0" />
                                  </font></Button>
                            </children>
                         </HBox>
@@ -91,7 +91,7 @@
       </HBox>
    </center>
    <top>
-      <GridPane prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: #1d3557;" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: #457b9d;" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -106,6 +106,9 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="14.0" />
+                     </font>
                   </Button>
                </children>
                <padding>
@@ -119,11 +122,8 @@
                <children>
                   <Label text="MATA KULIAH" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Italic" size="20.0" />
+                        <Font name="Berlin Sans FB" size="24.0" />
                      </font>
-                     <padding>
-                        <Insets left="28.0" />
-                     </padding>
                   </Label>
                </children>
             </HBox>

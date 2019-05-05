@@ -15,7 +15,7 @@
 
 <VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="480.0" style="-fx-background-color: #457b9d;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kafka.controller.matakuliah.MataKuliahEditViewController">
     <children>
-      <GridPane prefHeight="40.0">
+      <GridPane prefHeight="40.0" style="-fx-background-color: #a8dadc;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -28,7 +28,7 @@
                <children>
                   <Label text="EDIT MATA KULIAH" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Italic" size="20.0" />
+                        <Font name="Berlin Sans FB" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -40,7 +40,7 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#closeClick" style="-fx-background-radius: 20; -fx-background-color: #e63946;" text="X" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="14.0" />
+                        <Font name="Berlin Sans FB Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
@@ -69,51 +69,63 @@
             <children>
                 <Label text="Nama Mata Kuliah" textFill="WHITE">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
                 <Label text="SKS Teori" textFill="WHITE" GridPane.rowIndex="1">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
                 <Label text="SKS Praktikum" textFill="WHITE" GridPane.rowIndex="2">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
                 <Label text="Kurikulum" textFill="WHITE" GridPane.rowIndex="3">
                <font>
-                  <Font name="Calibri Bold" size="16.0" />
+                  <Font name="Berlin Sans FB" size="14.0" />
                </font></Label>
-                <TextField fx:id="namaMKTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1" />
+                <TextField fx:id="namaMKTextField" style="-fx-background-radius: 20;" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font></TextField>
                 <ComboBox fx:id="kurikulumComboBox" prefWidth="150.0" promptText="Pilih..." style="-fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <children>
                         <Button mnemonicParsing="false" onAction="#saveClick" style="-fx-background-radius: 20; -fx-background-color: #f9c22e;" text="Save" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="12.0" />
+                        <Font name="Berlin Sans FB" size="14.0" />
                      </font></Button>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <children>
-                        <TextArea fx:id="deskripsiTextArea" prefHeight="150.0" prefWidth="340.0" wrapText="true" />
+                        <TextArea fx:id="deskripsiTextArea" prefHeight="150.0" prefWidth="340.0" wrapText="true">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></TextArea>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                     <children>
                         <Label text="Deskripsi" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="16.0" />
+                        <Font name="Berlin Sans FB" size="14.0" />
                      </font></Label>
                     </children>
                 </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="sksTeoriTextField" prefWidth="30.0" style="-fx-background-radius: 20;" />
+                  <TextField fx:id="sksTeoriTextField" prefWidth="30.0" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <TextField fx:id="sksPraktikumTextField" prefWidth="30.0" style="-fx-background-radius: 20;" />
+                  <TextField fx:id="sksPraktikumTextField" prefWidth="30.0" style="-fx-background-radius: 20;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font></TextField>
                </children>
             </HBox>
             </children>

@@ -1,6 +1,7 @@
 package com.kafka.controller.dosen;
 
 import com.kafka.entity.Dosen;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -9,6 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -42,8 +46,6 @@ public class DosenAddViewController implements Initializable {
     @FXML
     private TextField namaBelakangTextField;
     @FXML
-    private Button clearButton;
-    @FXML
     private Button saveButton;
     @FXML
     private Button uploadButton;
@@ -51,6 +53,8 @@ public class DosenAddViewController implements Initializable {
     private TextField fileChooserTextField;
 
     private DosenViewController mainController;
+    @FXML
+    private VBox root;
 
     /**
      * Initializes the controller class.
@@ -58,16 +62,6 @@ public class DosenAddViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    @FXML
-    private void clearClick(ActionEvent event) {
-        nikTextField.clear();
-        nidnTextField.clear();
-        namaDepanTextField.clear();
-        namaBelakangTextField.clear();
-        gelarBelakangTextField.clear();
-        gelarDepanTextField.clear();
     }
 
     @FXML
@@ -79,18 +73,37 @@ public class DosenAddViewController implements Initializable {
         inputDosen.setNamaBelakangDosen(namaBelakangTextField.getText());
         inputDosen.setGelarDepanDosen(gelarDepanTextField.getText());
         inputDosen.setGelarBelakangDosen(gelarBelakangTextField.getText());
+        inputDosen.setImageDosen(fileChooserTextField.getText());
         this.mainController.getDosenDaoImpl().addData(inputDosen);
         this.mainController.getDosens().clear();
         this.mainController.getDosens().addAll(this.mainController.
                 getDosenDaoImpl().getAllData());
+        ((Stage) root.getScene().getWindow()).close();
     }
 
     @FXML
     private void uploadClick(ActionEvent event) {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Upload image");
+        chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter(
+                "*.jpg", "*.jpg"));
+        chooser.setInitialDirectory(new File("src/com/kafka/images"));
+        File file = chooser.showOpenDialog(root.getScene().getWindow());
+
+        fileChooserTextField.setText(file.getAbsolutePath());
+        fileChooserTextField.setDisable(true);
+
     }
 
     public void setMainController(DosenViewController mainController) {
         this.mainController = mainController;
+    }
+
+    @FXML
+    private void closeClick(ActionEvent event) {
+        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
+        ((Stage) root.getScene().getWindow()).close();
+        this.mainController.getSaveDosenButton().setDisable(false);
     }
 
 }

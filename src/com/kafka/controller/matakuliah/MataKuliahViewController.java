@@ -238,9 +238,6 @@ public class MataKuliahViewController implements Initializable {
         XSSFWorkbook wb = new XSSFWorkbook(in);
         XSSFSheet sheet = wb.getSheetAt(0);
         Row row;
-//        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-//
-//        }
 
         ObservableList<Matakuliah> MKSheets = FXCollections.
                 observableArrayList();
@@ -271,18 +268,6 @@ public class MataKuliahViewController implements Initializable {
         matakuliahs.addAll(matakuliahDaoImpl.getAllData());
         MKTableView.setItems(matakuliahs);
 
-//        Map<String, Object[]> data = new TreeMap<>();
-//        for (int i = 0; i <= sheet.getLastRowNum(); i++) {
-//            row = sheet.getRow(i);
-//            data.put(String.valueOf(i + 1), new Object[]{
-//                row.getCell(i).getStringCellValue(),
-//                row.getCell(i).getStringCellValue(),
-//                row.getCell(i).getStringCellValue(),
-//                row.getCell(i).getStringCellValue(),
-//                row.getCell(i).getStringCellValue(),
-//                row.getCell(i).getStringCellValue()
-//            });
-//        }
     }
 
     @FXML

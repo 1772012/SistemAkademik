@@ -46,8 +46,6 @@ public class LoginViewController implements Initializable {
     @FXML
     private VBox root;
     @FXML
-    private HBox closeBox;
-    @FXML
     private Label usernameLabel;
     @FXML
     private Label passwordLabel;
@@ -263,12 +261,12 @@ public class LoginViewController implements Initializable {
         return valid;
     }
 
-    @FXML
-    private void closeClick(MouseEvent event) {
-        Platform.exit();
-    }
-
     public VBox getRoot() {
         return root;
+    }
+
+    @FXML
+    private void closeClick(ActionEvent event) {
+        Platform.exit();
     }
 }

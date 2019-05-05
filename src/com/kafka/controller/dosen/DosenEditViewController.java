@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -26,8 +28,6 @@ public class DosenEditViewController implements Initializable {
     @FXML
     private Label gelarBelakangLabel;
     @FXML
-    private Button clearButton;
-    @FXML
     private Button saveButton;
     @FXML
     private Label namaDepanLabel;
@@ -41,6 +41,8 @@ public class DosenEditViewController implements Initializable {
     private DosenViewController mainController;
 
     private Dosen selectedDosen;
+    @FXML
+    private VBox root;
 
     /**
      * Initializes the controller class.
@@ -48,14 +50,6 @@ public class DosenEditViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    @FXML
-    private void clearClick(ActionEvent event) {
-        namaDepanTextField.clear();
-        namaBelakangTextField.clear();
-        gelarBelakangTextField.clear();
-        gelarDepanTextField.clear();
     }
 
     @FXML
@@ -89,6 +83,13 @@ public class DosenEditViewController implements Initializable {
                 getGelarDepanDosen());
         gelarBelakangTextField.setText(selectedDosen.
                 getGelarBelakangDosen());
+    }
+
+    @FXML
+    private void closeClick(ActionEvent event) {
+        ((Stage) this.mainController.getRoot().getScene().getWindow()).show();
+        ((Stage) root.getScene().getWindow()).close();
+        this.mainController.getSaveDosenButton().setDisable(false);
     }
 
 }

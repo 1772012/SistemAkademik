@@ -146,11 +146,12 @@ public class WisudaViewController implements Initializable {
     private void tableClick(MouseEvent event) {
         selectedWisuda = wisudaTableView.getSelectionModel().getSelectedItem();
         periodeTextField.setText(selectedWisuda.getId().getPeriodeWisuda());
-        editWisudaButton.setDisable(true);
+
         taIndTextField.setText(selectedWisuda.getJudulTaindonesiaWisuda());
         taIngTextField.setText(selectedWisuda.getJudulTainggrisWisuda());
         nrpComboBox.setValue(selectedWisuda.getMahasiswa());
         cekalCb.setSelected(selectedWisuda.getStatusCekalWisuda());
+        editWisudaButton.setDisable(false);
     }
 
 }
